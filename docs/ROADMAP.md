@@ -3,8 +3,10 @@
 ## Phase 0 — Paper (current)
 
 - [x] Vision and architecture written (`README.md`, `docs/ARCHITECTURE.md`)
-- [ ] Kernel config research: exact `CONFIG_` set for NTSYNC + deps on the
-      target kernel tree
+- [x] Kernel config research: exact `CONFIG_` set for NTSYNC + deps on the
+      target kernel tree — answer: one line, `CONFIG_NTSYNC=y`, zero
+      dependencies (verified against 7.3-rc5 Kconfig 2026-10-05).
+      Fragment: `kernel/config-fragment-asw`. Build docs: `docs/KERNEL.md`.
 - [ ] Survey Winlator's stack for integration points (what ASW reuses vs.
       what it replaces)
 

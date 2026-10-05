@@ -1,0 +1,8 @@
+# ASW kernel config fragment — applies on top of the base defconfig
+# Merged via: scripts/kconfig/merge_config.sh <base> config-fragment-asw
+# Verified against linux-7.3-rc5 Kconfig tree, 2026-10-05.
+# NTSYNC (drivers/misc/ntsync.c) has no Kconfig dependencies.
+
+# NT synchronization primitive emulation (/dev/ntsync).
+# Built in (=y) so the device exists at boot with no module loading.
+CONFIG_NTSYNC=y
