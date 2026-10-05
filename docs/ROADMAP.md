@@ -7,8 +7,11 @@
       target kernel tree — answer: one line, `CONFIG_NTSYNC=y`, zero
       dependencies (verified against 7.3-rc5 Kconfig 2026-10-05).
       Fragment: `kernel/config-fragment-asw`. Build docs: `docs/KERNEL.md`.
-- [ ] Survey Winlator's stack for integration points (what ASW reuses vs.
-      what it replaces)
+- [x] Survey Winlator's stack for integration points (what ASW reuses vs.
+      what it replaces) — `docs/WINLATOR-SURVEY.md` (2026-10-05). Finding:
+      Winlator 11.x ships Wine 11.x, which auto-detects `/dev/ntsync`;
+      ASW reuses the whole userspace unmodified, replaces only the kernel,
+      and adds a sepolicy fragment (new work item). Phase 0 complete.
 
 ## Phase 1 — Kernel
 
