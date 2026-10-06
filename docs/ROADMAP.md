@@ -13,10 +13,18 @@
       ASW reuses the whole userspace unmodified, replaces only the kernel,
       and adds a sepolicy fragment (new work item). Phase 0 complete.
 
-## Phase 1 — Kernel
+## Phase 1 — Kernel (in progress, 2026-10-06)
 
-- [ ] Custom kernel (7.x target) built with `CONFIG_NTSYNC=y`
-- [ ] Boot in the AVD lab; verify `/dev/ntsync` exists and answers
+- [x] Custom kernel (7.x target) built with `CONFIG_NTSYNC=y` — 2026-10-06:
+      `CONFIG_NTSYNC=y` merged via merge_config.sh into the 7.3-rc5 AVD tree
+      (drivers/misc/ntsync.c present in-tree, zero Kconfig deps); incremental
+      `ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- make -j2` finished
+      `NTSYNC-BUILD-EXIT:0` (log: avd/kernel/build-7.3-ntsync.log). System.map
+      shows `ntsync_misc_init` as an `__initcall` — /dev/ntsync registers at
+      boot. Image staged: avd/img/root/Image-7.3-avd (52.7 MB). Toolchain
+      aarch64-linux-gnu-gcc 13.3.0 (reinstalled — the build host keeps wiping it).
+- [ ] Boot in the AVD lab; verify `/dev/ntsync` exists and answers —
+      blocked: this host has no /dev/kvm, needs a KVM-capable machine.
 - [ ] Document the build reproducibly (config, toolchain, steps)
 
 ## Phase 2 — First light
